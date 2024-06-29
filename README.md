@@ -1,0 +1,2 @@
+# LIghtAI
+A simple ai
