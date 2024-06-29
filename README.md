@@ -1,6 +1,7 @@
 # LIghtAI
-A simple ai
-以下是一个可能的底层架构设计思路：
+一个简单的AI模型
+
+底层架构设计思路：
 
 ### 1. **动态参数自适应模块 (Dynamic Parameter Adaptation Module)**
    - **核心思想**：模型参数随对话进行而动态调整。
