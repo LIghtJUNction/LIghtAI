@@ -4,7 +4,8 @@ import json
 
 from . import SystemPrompt # 从当前目录的__init__.py引入全局变量系统提示词
 from . import host
-from . import port
+from . import port 
+
 
 """
 快速介绍 这是用于接入ollama 模型的一个
@@ -26,10 +27,11 @@ from . import port
 
 """
 class OllamaModel:
-    def __init__(self, hoss, port):
+    def __init__(self, host=host, port=port):
         self.base_url = f"http://{host}:{port}/api"
         self.name = self.list_local_models()[0]       # 模型名字
         global System
+    
     def generate_completion(self, prompt, stream=True,system=SystemPrompt):  # 已测试,功能正常 6/27/2024
         url = f"{self.base_url}/generate"
         headers = {"Content-Type": "application/json"}

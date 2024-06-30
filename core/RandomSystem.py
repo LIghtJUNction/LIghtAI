@@ -7,5 +7,4 @@
 class RandomSystem:
         def __init__(self) :
                 self
-        def GetInitprompt(self):
-                self
+        
