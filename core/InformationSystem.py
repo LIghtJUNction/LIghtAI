@@ -9,4 +9,8 @@
 
 class InformationSystem:
     def __init__(self):
-        self
+        pass
+
+    def search(self, query):
+        # 模拟搜索请求
+        return f"Search results for query: {query}"

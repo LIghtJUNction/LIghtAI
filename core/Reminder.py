@@ -1,6 +1,6 @@
 import datetime
 import RandomSystem
-
+import asyncio  # 异步编程
 
 """
     它的作用主要是构建提示词
@@ -10,22 +10,28 @@ import RandomSystem
 """
 
 class ReminderSystem:
-    def __init__(self) :
-        self.time= datetime.datetime.now()  #系统当前时间
-        self.environment="..DATA/MY_environment"#当前操作系统的环境 (可以通过neofetch查看)
-        self.memory= "../DATA/MY_memory"
-        self.plan="../DATA/MY_plan" 
-        self.note="../DATA/MY_note" # 一个临时的笔记本
+    def __init__(self):
+        self.messages = []
 
+    def get_init_prompt(self):
+        prompts = ["启动提示词1", "启动提示词2", "启动提示词3"]
+        return random.choice(prompts)
 
-    def GetInitprompt(self):  # 获得初始提示词 
-        InitPrompt = "你现在处于一个虚拟操作系统中,我将向你提供" # 后续改为随机
-        return InitPrompt
+    def get_messages(self, init_prompt):
+        self.messages.append({'role': 'system', 'content': init_prompt})
+        return self.messages
 
+    def get_prompt(self, result):
+        return f"基于结果生成的新提示词: {result}"
 
-    def GetMessages(self,prompt): # 获得[{ "role": "user", "content": "why is the sky blue?" },{更多记录...}]格式的message
-        messages = []
-        message = {"role": "user", "content": prompt} # 将消息数据包装成字典，并添加到messages列表中
-        messages.append(message)
-        # 返回消息列表
-        return messages
+    def judge_again(self, response):
+        return f"重新判断的结果: {response}"
+
+    def get_summary(self):
+        if random.random() < 0.1:  # 10% 概率触发总结
+            return "这是一个总结。"
+        return None
+
+    def get_choice(self):
+        choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        return random.choice(choices)
