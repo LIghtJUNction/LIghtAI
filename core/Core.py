@@ -18,7 +18,7 @@ import subprocess
     reminder.JudgeAgain(response) # 判断有误,重新判断,返回一个新的判断结果
     reminder.GetSummary() # 概率触发 触发后本轮对话将是 总结(带系统提示词)
 
-    rand.GetChoice()
+    reminder.GetChoice()
 
 """
 class LIghtas:
@@ -50,7 +50,7 @@ class LIghtas:
         choice = self.judge(response)
         if choice not in self.choices:
             self.reminder.remind()
-            choice = self.rand.GetChoice()
+            choice = self.reminder.GetChoice()
         result=self.run(choice)
         prompt = self.reminder.GetPrompt(result)  # 由程序运行结果生成新的提示词
         message = self.reminder.GetMessage(prompt)

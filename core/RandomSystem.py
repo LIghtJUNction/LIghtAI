@@ -7,4 +7,5 @@
 class RandomSystem:
         def __init__(self) :
                 self
-        
+        def GetChoice(self):
+                
