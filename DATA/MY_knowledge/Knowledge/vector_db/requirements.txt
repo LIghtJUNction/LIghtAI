@@ -1,3 +1,0 @@
-qdrant_client
-openai
-tqdm
